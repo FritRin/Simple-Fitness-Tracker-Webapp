@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<head>
+    <!--HTML for fitness webapp, current names and data may be placeholders.-->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>My Fitness App</title>
+    <!--Links to stylesheets and js here-->
+</head>
+<body>
+    <header>
+        <!--header image-->
+        <h1>My Fitness App</h1>
+        <!--current date-->
+    </header>
+    <h1>Log an Activity</h1>
+    <form action="http://www.example.com/myapp/log" method="post">
+        <label for="actType">Activity Type*</label>
+        <input name="Type" id="actType" type="text" list="typeList" required/>
+        <datalist id ="typeList">
+            <option value="Workout"/>
+            <option value="Habit"/>
+        </datalist>
+
+        <label for="actName">Activity Name*</label>
+        <input name="Name" id="actName" type="text" required/>
+
+        <label for="amnt">Duration/Quantity*</label>
+        <input name="Amount" id="amnt" type="text" required/>
+
+        <label for="Date">Date*</label>
+        <input name="time" id="Date" type="datetime" required/>
+
+        <label for="extraNotes">Notes</label>
+        <textarea name="Notes" id="extraNotes" type="text" placeholder="None"></textarea>
+
+        <p><input type="submit" value="Submit"/></p>
+    </form>
+
+    <h1>Activity Log</h1>
+    <table id="activityLog">
+        <colgroup>
+            <col if="Columns"/>
+            <col class="dataCols" span="5"/>
+        </colgroup>
+        <thead>
+            <tr>
+                <th>Activity Type</th>
+                <th>Name</th>
+                <th>Duration/Quantity</th>
+                <th>Date</th>
+                <th>Notes</th>
+            </tr>
+            <tr>
+                <th>Workout</th>
+                <th>Running</th>
+                <th>1 hour</th>
+                <th>23-03-2026</th>
+                <th>Ran 5km at local park</th>
+            </tr>
+            <tr>
+                <th>Workout</th>
+                <th>Strength Training</th>
+                <th>30 Minutes</th>
+                <th>24-03-2026</th>
+                <th>None</th>
+            </tr>
+            <tr>
+                <th>Habit</th>
+                <th>Walking</th>
+                <th>30 minutes</th>
+                <th>24-03-2026</th>
+                <th>Daily walk around the block.</th>
+            </tr>
+        </thead>
+    </table>
+
+    <h1>My Statistics</h1>
+    <h3>Total:</h3>
+    <h3>Monthly Total:</h3>
+    <h3>Weekly Total: </h3>
+    <h3>Average Duration: </h3>
+    <h3>Average Duration/Quantity: </h3>
+    <h3>Monthly Average: </h3>
+    <h3>Weekly Average: </h3>
+
+    <h1>My Goals</h1>
+
+    <h2>Current Streak: 2 days</h2>
+</body>
