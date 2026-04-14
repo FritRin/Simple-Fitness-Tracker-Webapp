@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>My Fitness App</title>
     <!--Links to stylesheets and js here-->
+    <link href="css/resetStyle.css" rel="stylesheet">
+    <link href="css/mainStyle.css" rel="stylesheet">
+    <link href="css/tableStyle.css" rel="stylesheet">
+    <link href="css/formStyle.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -28,7 +32,7 @@
         <input name="Amount" id="amnt" type="text" required/>
 
         <label for="Date">Date*</label>
-        <input name="time" id="Date" type="datetime" required/>
+        <input name="time" id="Date" type="datetime" placeholder="dd-mm-yyyy" required/>
 
         <label for="extraNotes">Notes</label>
         <textarea name="Notes" id="extraNotes" type="text" placeholder="None"></textarea>
@@ -39,7 +43,7 @@
     <h1>Activity Log</h1>
     <table id="activityLog">
         <colgroup>
-            <col if="Columns"/>
+            <col id="Columns"/>
             <col class="dataCols" span="5"/>
         </colgroup>
         <thead>
@@ -75,13 +79,13 @@
     </table>
 
     <h1>My Statistics</h1>
-    <h3>Total:</h3>
-    <h3>Monthly Total:</h3>
-    <h3>Weekly Total: </h3>
-    <h3>Average Duration: </h3>
-    <h3>Average Duration/Quantity: </h3>
-    <h3>Monthly Average: </h3>
-    <h3>Weekly Average: </h3>
+    <h2>Total:</h2>
+    <h2>Monthly Total:</h2>
+    <h2>Weekly Total: </h2>
+    <h2>Average Duration: </h2>
+    <h2>Average Duration/Quantity: </h2>
+    <h2>Monthly Average: </h2>
+    <h2>Weekly Average: </h2>
 
     <h1>My Goals</h1>
 

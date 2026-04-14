@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+label{
+    display: block;
+    margin: 0.5%;
+    width: 30%;
+    font-weight: normal;
+    color: rgb(151, 224, 97);   
+}
+
+input, select {
+    display: block;
+    margin: 0.5%;
+    width: 20%;
+}
+
+textarea{
+    display: block;
+    margin: 0.5%;
+    width: 20%;
+}

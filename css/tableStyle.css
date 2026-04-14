@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+table{
+    background-color: rgb(242, 254, 255);
+    border: 3px solid rgb(143, 220, 207);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th{
+    border: 3px solid rgb(143, 220, 207);
+    padding: 1%;
+    line-height: 1.4em;
+}
+
+th{
+    font-weight: normal;
+    color: rgb(151, 224, 97);
+}
+
+col#Columns{
+    width: 24%;
+}
