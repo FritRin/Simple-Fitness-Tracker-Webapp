@@ -1,8 +1,12 @@
 @charset "utf-8";
 
+/* Form Styles */
+
 label{
     display: block;
-    margin: 0.5%;
+    margin: 0 auto;
+    margin-bottom: 1%;
+    margin-top: 1%;
     width: 30%;
     font-weight: normal;
     color: rgb(151, 224, 97);   
@@ -10,12 +14,31 @@ label{
 
 input, select {
     display: block;
-    margin: 0.5%;
+    margin: 0 auto;
+    margin-bottom: 1%;
     width: 20%;
 }
 
 textarea{
     display: block;
-    margin: 0.5%;
+    margin: 0 auto;
     width: 20%;
+}
+
+/* Hide form by default */
+#activityForm{
+    display: none;
+}
+
+/* Form button styles */
+#formButton{
+    width: 20%;
+    height: 40px;
+    background-color: rgb(107, 199, 218);
+    color: cornsilk;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10%;
+    border: none;
+    margin-top: 2%;
 }

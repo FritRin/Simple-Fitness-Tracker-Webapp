@@ -3,21 +3,23 @@
     <!--HTML for fitness webapp, current names and data may be placeholders.-->
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>My Fitness App</title>
-    <!--Links to stylesheets and js here-->
+    <title>Superstar Fitness Tracker</title>
+    <!--Links to stylesheets and JS-->
     <link href="css/resetStyle.css" rel="stylesheet">
     <link href="css/mainStyle.css" rel="stylesheet">
     <link href="css/tableStyle.css" rel="stylesheet">
     <link href="css/formStyle.css" rel="stylesheet">
+    <script src="js/sfMain.js" defer></script>
 </head>
 <body>
     <header>
-        <!--header image-->
-        <h1>My Fitness App</h1>
-        <!--current date-->
+        <img src="images/sfHeader.png" alt="website header displaying app logo" id="webHeader"/>
+        <div id="todayDate">Today's Date</div>
     </header>
-    <h1>Log an Activity</h1>
-    <form action="http://www.example.com/myapp/log" method="post">
+   
+    <button onclick="showHideForm(1)" id="formButton">Log an Activity</button>
+
+    <form action="http://www.example.com/myapp/log" id="activityForm" onsubmit="return validateForm()" method="post">
         <label for="actType">Activity Type*</label>
         <input name="Type" id="actType" type="text" list="typeList" required/>
         <datalist id ="typeList">
@@ -37,7 +39,7 @@
         <label for="extraNotes">Notes</label>
         <textarea name="Notes" id="extraNotes" type="text" placeholder="None"></textarea>
 
-        <p><input type="submit" value="Submit"/></p>
+        <p><input type="submit" value="Submit" id="formButton"/></p>
     </form>
 
     <h1>Activity Log</h1>

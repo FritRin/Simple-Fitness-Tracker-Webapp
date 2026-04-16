@@ -25,8 +25,23 @@ body{
     box-shadow: rgb(186, 235, 151) 10px 0px 40px, rgb(186, 235, 151) -10px 0px 40px;
 }
 
-/* Header img Styles
-Still needs header img to style! */
+/* Header img Styles */
+
+#webHeader{
+    max-height: 100%;
+    width: 100%;
+}
+
+
+/* div styles */
+#todayDate{
+    font-weight: 300;
+    font-size: 2vw;
+    letter-spacing: 0.03em;
+    line-height: 1.2em;
+    margin-left: 85%;
+    color: rgb(151, 224, 97);
+}
 
 /* Heading Styles */
 h1{
