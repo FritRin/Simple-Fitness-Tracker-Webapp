@@ -10,6 +10,7 @@
     <link href="css/tableStyle.css" rel="stylesheet">
     <link href="css/formStyle.css" rel="stylesheet">
     <script src="js/sfMain.js" defer></script>
+    <script src="js/sfLog.js" defer></script>
 </head>
 <body>
     <header>
@@ -19,7 +20,7 @@
    
     <button onclick="showHideForm(1)" id="formButton">Log an Activity</button>
 
-    <form action="http://www.example.com/myapp/log" id="activityForm" onsubmit="return validateForm()" method="post">
+    <form id="activityForm" onsubmit="return validateForm()">
         <label for="actType">Activity Type*</label>
         <input name="Type" id="actType" type="text" list="typeList" required/>
         <datalist id ="typeList">
@@ -28,7 +29,7 @@
         </datalist>
 
         <label for="actName">Activity Name*</label>
-        <input name="Name" id="actName" type="text" required/>
+        <input name="activityName" id="actName" type="text" required/>
 
         <label for="amnt">Duration/Quantity*</label>
         <input name="Amount" id="amnt" type="text" required/>
@@ -43,41 +44,19 @@
     </form>
 
     <h1>Activity Log</h1>
-    <table id="activityLog">
-        <colgroup>
-            <col id="Columns"/>
-            <col class="dataCols" span="5"/>
-        </colgroup>
+    <table>
         <thead>
             <tr>
                 <th>Activity Type</th>
                 <th>Name</th>
                 <th>Duration/Quantity</th>
-                <th>Date</th>
+                <th id="dateCol">Date</th>
                 <th>Notes</th>
             </tr>
-            <tr>
-                <th>Workout</th>
-                <th>Running</th>
-                <th>1 hour</th>
-                <th>23-03-2026</th>
-                <th>Ran 5km at local park</th>
-            </tr>
-            <tr>
-                <th>Workout</th>
-                <th>Strength Training</th>
-                <th>30 Minutes</th>
-                <th>24-03-2026</th>
-                <th>None</th>
-            </tr>
-            <tr>
-                <th>Habit</th>
-                <th>Walking</th>
-                <th>30 minutes</th>
-                <th>24-03-2026</th>
-                <th>Daily walk around the block.</th>
-            </tr>
         </thead>
+        <tbody id="activityLog">
+
+        </tbody>
     </table>
 
     <h1>My Statistics</h1>
