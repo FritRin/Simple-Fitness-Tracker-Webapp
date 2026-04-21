@@ -13,26 +13,20 @@ function showHideForm(buttonPressed){
         document.getElementById("activityForm").style.display="none";
 }
 
-// Validate form input
-function validateForm(){
-    let typeInput = document.forms;
-    if (typeInput == ""){
-        alert("Please select an activity type!")
+// Form validation 2 electric boogaloo
+function validateFormInputs(){
+    let typeInput = document.getElementById("actType").value;
+    let dateInput = document.getElementById("Date").value;
+    let parsedDate = new Date(dateInput);
+
+    if(typeInput !== "Workout" && typeInput !== "Habit"){
+        alert("Please input a valid activity type!");
         return false;
     }
+
+    if(isNaN(parsedDate.getTime())){
+        alert("Please input a valid date!")
+        return false;
+    }
+    return true;
 }
-
-// Building the table to display the activity log
-
-// Storing form input in an array
-
-
-
-
-//var activityArray = storeInput();
-//console.log(activityArray);
-
-//logHtml += "</table>";
-
-// Write the table to HTML
-//document.getElementById("activityLog").innerHTML = logHtml;

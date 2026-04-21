@@ -20,7 +20,7 @@
    
     <button onclick="showHideForm(1)" id="formButton">Log an Activity</button>
 
-    <form id="activityForm" onsubmit="return validateForm()">
+    <form id="activityForm" onsubmit="return validateFormInputs()">
         <label for="actType">Activity Type*</label>
         <input name="Type" id="actType" type="text" list="typeList" required/>
         <datalist id ="typeList">
@@ -35,7 +35,7 @@
         <input name="Amount" id="amnt" type="text" required/>
 
         <label for="Date">Date*</label>
-        <input name="time" id="Date" type="datetime" placeholder="dd-mm-yyyy" required/>
+        <input name="time" id="Date" type="date" required/>
 
         <label for="extraNotes">Notes</label>
         <textarea name="Notes" id="extraNotes" type="text" placeholder="None"></textarea>
@@ -45,6 +45,10 @@
 
     <h1>Activity Log</h1>
     <table>
+        <colgroup>
+            <col span="5">
+            <col span="1" class="editDelete">
+        </colgroup>
         <thead>
             <tr>
                 <th>Activity Type</th>
@@ -52,6 +56,7 @@
                 <th>Duration/Quantity</th>
                 <th id="dateCol">Date</th>
                 <th>Notes</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody id="activityLog">

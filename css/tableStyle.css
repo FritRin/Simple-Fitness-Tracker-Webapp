@@ -13,6 +13,7 @@ th{
     padding: 1%;
     line-height: 1.4em;
     border-style: solid;
+    width: 15%;
 }
 
 th{
@@ -25,7 +26,7 @@ td{
     padding: 1%;
     line-height: 1.4em;
     border-style: solid;
-    width: 23%;
+    width: 15%;
     white-space: nowrap;
 }
 
@@ -36,6 +37,7 @@ td{
 
 td:nth-child(5){
     width: 100%;
+    max-width: 0;
     white-space: nowrap;
 
 }

@@ -1,49 +1,72 @@
 "use strict";
 
-document.getElementById("activityForm").addEventListener("submit", function(event){storeInput();});
+// runs store input function when form is submitted
+document.getElementById("activityForm").addEventListener("submit", function(event){
+    event.preventDefault();
+    if(validateFormInputs()){
+        storeInput();
+        this.reset();
+        showHideForm(0);
+    }    
+});
 
+
+
+// Function to store form input in an array -> localStorage
 function storeInput(){
+    // create an activity object
+    const activity = {};
 
-    var typeInput = document.getElementById("actType").value;
-    var nameInput = document.getElementById("actName").value;
-    var amntInput = document.getElementById("amnt").value;
-    var dateInput = document.getElementById("Date").value;
-    var notesInput = document.getElementById("extraNotes").value;
-    if (notesInput === ""){
-        notesInput = "None"
-    }
+    // Stores form inputs in activity object
+    activity.actType = document.getElementById("actType").value;
+    activity.actName = document.getElementById("actName").value;
+    activity.actDuration = document.getElementById("amnt").value;
+    activity.actDate = document.getElementById("Date").value;
+    activity.actNotes = document.getElementById("extraNotes").value || "None";
 
-    var activityArray = `${typeInput}#${nameInput}#${amntInput}#${dateInput}#${notesInput}`;
-    console.log(activityArray);
+    // Create an array to store activity objects in
+    let activities = JSON.parse(localStorage.getItem("activity")) || [];
 
-    const timeStamp = Date.now();
+    activities.unshift(activity);
 
-    localStorage.setItem("log_" + timeStamp, activityArray);
+    // Stores array with unique key in localStorage then calls display function to show input in table
+    localStorage.setItem("activity", JSON.stringify(activities));
+    alert("Activity logged successfully!");
+    displayInput();
+}
 
-    console.log(activityArray);
-    }
-
+// Display function
 function displayInput() {
-    var tableBody = document.getElementById("activityLog");
+    const tableBody = document.getElementById("activityLog");
     tableBody.innerHTML = "";
 
-    for (var i = 0; i < localStorage.length; i++) {
-        var key = localStorage.key(i);
-        if(key && key.startsWith("log_")){
-            var value = localStorage.getItem(key);
-            var tableValues = value.split("#");
-            
-            var row = document.createElement("tr");
-            row.innerHTML = `<td>${tableValues[0]}</td>
-                            <td>${tableValues[1]}</td>
-                            <td>${tableValues[2]}</td>
-                            <td>${tableValues[3]}</td>
-                            <td>${tableValues[4]}</td>
-            `;
-            tableBody.appendChild(row);
-        }
+    let activities = JSON.parse(localStorage.getItem("activity")) || [];
 
+    // Retrieves values from localStorage
+    activities.forEach((activity, index) => {
+        // Creates rows with values taken from localStorage and appends to table
+        const row = document.createElement("tr");
+        row.innerHTML = `<td>${activity.actType}</td>
+                        <td>${activity.actName}</td>
+                        <td>${activity.actDuration}</td>
+                        <td>${activity.actDate}</td>
+                        <td>${activity.actNotes}</td>
+                        <td><button onclick="deleteData('${index}')">Delete</button>
+                        <button>Edit</button></td>`;
+    tableBody.appendChild(row);    
+        
+    });
+}
+
+// Delete a row from the table
+function deleteData(index){
+    if(confirm("Are you sure you want to delete this entry?") == true){
+        let activities = JSON.parse(localStorage.getItem("activity")) || [];
+        activities.splice(index, 1);
+        localStorage.setItem("activity", JSON.stringify(activities));
+        displayInput();
     }
 }
 
 window.onload = displayInput;
+
