@@ -14,6 +14,7 @@
 </head>
 <body>
     <header>
+        <!--I drew this header in MSpaint, the background is sourced from Figma's gradient generator-->
         <img src="images/sfHeader.png" alt="website header displaying app logo" id="webHeader"/>
         <div id="todayDate">Today's Date</div>
     </header>
@@ -22,28 +23,34 @@
 
     <form id="activityForm" onsubmit="return validateFormInputs()">
         <label for="actType">Activity Type*</label>
-        <input name="Type" id="actType" type="text" list="typeList" required/>
+        <input name="Type" id="actType" type="text" list="typeList" class="formInput" required/>
         <datalist id ="typeList">
             <option value="Workout"/>
             <option value="Habit"/>
         </datalist>
 
         <label for="actName">Activity Name*</label>
-        <input name="activityName" id="actName" type="text" required/>
+        <input name="activityName" id="actName" type="text" class="formInput" required/>
 
         <label for="amnt">Duration/Quantity*</label>
-        <input name="Amount" id="amnt" type="text" required/>
+        <input name="Amount" id="amnt" type="text" class="formInput" required/>
 
         <label for="Date">Date*</label>
-        <input name="time" id="Date" type="date" required/>
+        <input name="time" id="Date" type="date" class="formInput" required/>
 
         <label for="extraNotes">Notes</label>
         <textarea name="Notes" id="extraNotes" type="text" placeholder="None"></textarea>
 
-        <p><input type="submit" value="Submit" id="formButton"/></p>
+        <p><input type="submit" value="Submit" id="formButton" class="formInput"/></p>
     </form>
 
     <h1>Activity Log</h1>
+    <input name="Search" id="searchKey" type="text" placeholder="Search...">
+    <select id="filterKey">
+        <option value="">All</option>
+        <option value="Workout">Workout</option>
+        <option value="Habit">Habit</option>
+    </select>
     <table>
         <colgroup>
             <col span="5">

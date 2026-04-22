@@ -12,7 +12,7 @@ label{
     color: rgb(151, 224, 97);   
 }
 
-input, select {
+input.formInput, select.formInput {
     display: block;
     margin: 0 auto;
     margin-bottom: 1%;

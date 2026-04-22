@@ -64,6 +64,11 @@ h2{
     margin-left: 0.5%;
 }
 
+/* Non-form text area styles */
+select{
+    width: 10%;
+}
+
 /* Responsive Design */
 @media only screen and (max-width:640px) {
     
