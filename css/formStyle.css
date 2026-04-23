@@ -17,6 +17,7 @@ input.formInput, select.formInput {
     margin: 0 auto;
     margin-bottom: 1%;
     width: 20%;
+    padding-left: 0;
 }
 
 textarea{
@@ -30,8 +31,12 @@ textarea{
     display: none;
 }
 
+#goalForm{
+    display: none;
+}
+
 /* Form button styles */
-#formButton{
+button.formButton{
     width: 20%;
     height: 40px;
     background-color: rgb(107, 199, 218);
@@ -41,4 +46,30 @@ textarea{
     border-radius: 10%;
     border: none;
     margin-top: 2%;
+}
+
+input.formButton{
+    width: 20%;
+    height: 40px;
+    background-color: rgb(107, 199, 218);
+    color: cornsilk;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10%;
+    border: none;
+    margin-top: 2%;
+}
+
+.inputContainer{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+input.unitInput{
+    box-sizing: border-box;
+}
+
+input.unitInput1{
+    width: 5%;
 }

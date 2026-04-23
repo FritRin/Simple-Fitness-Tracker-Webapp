@@ -41,3 +41,16 @@ td:nth-child(5){
     white-space: nowrap;
 
 }
+
+button.deleteButton{
+    background-color: firebrick;
+    color: whitesmoke;
+    width: 70%;
+    margin-left: -10%;
+}
+
+button.editButton{
+    background-color: aqua;
+    width: 55%;
+    margin-left: -10%;
+}

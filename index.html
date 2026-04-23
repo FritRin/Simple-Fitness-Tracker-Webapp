@@ -10,6 +10,7 @@
     <link href="css/tableStyle.css" rel="stylesheet">
     <link href="css/formStyle.css" rel="stylesheet">
     <script src="js/sfMain.js" defer></script>
+    <script src="js/sfStats.js" defer></script>
     <script src="js/sfLog.js" defer></script>
 </head>
 <body>
@@ -18,8 +19,10 @@
         <img src="images/sfHeader.png" alt="website header displaying app logo" id="webHeader"/>
         <div id="todayDate">Today's Date</div>
     </header>
+
+    <div id="userStreak"></div>
    
-    <button onclick="showHideForm(1)" id="formButton">Log an Activity</button>
+    <button onclick="showHideForm(1)" class="formButton">Log an Activity</button>
 
     <form id="activityForm" onsubmit="return validateFormInputs()">
         <label for="actType">Activity Type*</label>
@@ -33,7 +36,15 @@
         <input name="activityName" id="actName" type="text" class="formInput" required/>
 
         <label for="amnt">Duration/Quantity*</label>
-        <input name="Amount" id="amnt" type="text" class="formInput" required/>
+        <div class="inputContainer">
+            <input name="Amount" id="amnt" type="text" class="unitInput" required/>
+            <input name="amntUnit" id="actUnit" type="text" list="unitList" class="unitInput1" required/>
+            <datalist id ="unitList">
+                <option value="Minutes"/>
+                <option value="km"/>
+                <option value="Sessions"/>
+            </datalist>
+        </div>
 
         <label for="Date">Date*</label>
         <input name="time" id="Date" type="date" class="formInput" required/>
@@ -41,7 +52,7 @@
         <label for="extraNotes">Notes</label>
         <textarea name="Notes" id="extraNotes" type="text" placeholder="None"></textarea>
 
-        <p><input type="submit" value="Submit" id="formButton" class="formInput"/></p>
+        <p><input type="submit" value="Submit" class="formButton"/></p>
     </form>
 
     <h1>Activity Log</h1>
@@ -50,6 +61,11 @@
         <option value="">All</option>
         <option value="Workout">Workout</option>
         <option value="Habit">Habit</option>
+    </select>
+    <select id="filterTime">
+        <option value="">All Time</option>
+        <option value="byWeek">This Week</option>
+        <option value="byMonth">This Month  </option>
     </select>
     <table>
         <colgroup>
@@ -72,15 +88,40 @@
     </table>
 
     <h1>My Statistics</h1>
-    <h2>Total:</h2>
-    <h2>Monthly Total:</h2>
-    <h2>Weekly Total: </h2>
-    <h2>Average Duration: </h2>
-    <h2>Average Duration/Quantity: </h2>
-    <h2>Monthly Average: </h2>
-    <h2>Weekly Average: </h2>
+    <div id="activityStats"></div>
 
     <h1>My Goals</h1>
+    <button onclick="showHideForm(2)" class="formButton">Set a New Goal</button>
+    <form id="goalForm">
+        <label for="goalType">Is your goal a workout or habit goal?*</label>
+        <input name="gType" id="goalType" type="text" list="gTypeList" class="formInput" required/>
+        <datalist id ="gTypeList">
+            <option value="Workout"/>
+            <option value="Habit"/>
+        </datalist>
+        <label for="goalName">Which activity is goal related to?*</label>
+        <input name="gName" id="goalName" type="text" class="formInput" required/>
 
-    <h2>Current Streak: 2 days</h2>
+        <label for="goalTarget">What is your fitness goal?*</label>
+        <div class="inputContainer">
+        <input name="gTime" id="goalTarget" type="text" class="unitInput" required/>
+        <input name="gUnit" id="goalUnit" type="text" list="gUnitList" class="unitInput1" required/>
+        <datalist id ="gUnitList">
+            <option value="Minutes"/>
+            <option value="km"/>
+            <option value="Sessions"/>
+        </datalist>
+        </div>
+        <label for="goalPeriod">In what time do you want to achieve this goal?*</label>
+        <input name="gPeriod" id="goalPeriod" type="text" list="gPeriodList" class="formInput" required/>
+            <datalist id ="gPeriodList">
+            <option value="A Week"/>
+            <option value="A Month"/>
+        </datalist>
+        <p><input type="submit" value="Add Goal" class="formButton"></p>
+    </form>
+
+    <div id="goalList"></div>
+
+    <button id="killButton" onclick="deleteAllData()">Clear All Data</button>
 </body>
